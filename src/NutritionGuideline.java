@@ -92,12 +92,21 @@ public class NutritionGuideline {
 		return ageGroup;
 	}
 	
+	/**
+	 * This method is to get the target Protein
+	 */
 	public void getProteinRDA() {
 	}
 	
+	/**
+	 * This method is to get the target Fat
+	 */
 	public void getFatRDA() {
 	}
 	
+	/**
+	 * This method is to get the target Carbohydrate
+	 */
 	public void getCarbohydrateRDA() {
 	}
 
