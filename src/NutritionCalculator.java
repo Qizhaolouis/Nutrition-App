@@ -13,7 +13,7 @@ public class NutritionCalculator {
 	 * @param guide
 	 * @return difference
 	 */
-	public int caloriesDifferenceToGuide(FoodGroup meal, NutritionGuideline guide) {
+	public static int caloriesDifferenceToGuide(FoodGroup meal, NutritionGuideline guide) {
 		// To be developed
 		return 0;
 	}
@@ -48,7 +48,7 @@ public class NutritionCalculator {
 	 * @param carbs difference from guideline
 	 * @return suggested Food
 	 */
-	public Food getSuggestedFood(int caloriesDif, int proteinDif, int fatDif, int carbsDif) {
+	public static Food getSuggestedFood(int caloriesDif, int proteinDif, int fatDif, int carbsDif) {
 		// To be developed
 		Food userFood = new Food("Bagels Wheat");
 		return userFood;
