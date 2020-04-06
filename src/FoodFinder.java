@@ -59,18 +59,5 @@ public class FoodFinder {
 		ArrayList<String> selection = new ArrayList<String>(matchedNames.subList(0, topN));
 		return selection;
 	}
-	
-	
-	/**
-	 * Gives a similarity score based on the 2 foods
-	 * do NOT compare calories because we can reduce or increase calories by changing portion
-	 * compare the percent of fat/protein/carbs
-	 * @param food1
-	 * @param food2
-	 * @return
-	 */
-	public double getSimilarityScore(Food food1, Food food2) {
-		return 1;
-	}
 
 }
