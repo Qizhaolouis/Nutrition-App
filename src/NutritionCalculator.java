@@ -50,7 +50,7 @@ public class NutritionCalculator {
 	 */
 	public static Food getSuggestedFood(int caloriesDif, int proteinDif, int fatDif, int carbsDif) {
 		// To be developed
-		Food userFood = new Food("Bagels Wheat");
+		Food userFood = new Food("");
 		return userFood;
 	}
 }
