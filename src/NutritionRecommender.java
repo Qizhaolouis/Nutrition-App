@@ -2,7 +2,7 @@ import java.util.*;
 
 /***
  * The user interface for the user interaction
- *
+ * @author Team-70
  */
 public class NutritionRecommender {
 	
@@ -35,7 +35,7 @@ public class NutritionRecommender {
 	}
 	
 	/**
-	 * Ask user the food they ate
+	 * Asks user the food they ate
 	 * needs to be completed
 	 * if a food user input is not in the key of the foodLibrary
 	 * ask "Do you mean the food: XXX" using the foodFider class
@@ -55,7 +55,7 @@ public class NutritionRecommender {
 	}
 
 	/**
-	 * print suggestions
+	 * Prints suggestions
 	 */
 	public void giveSuggestions() {
 		ArrayList<String> suggestions = newUser.getGeneralSuggestions();
@@ -63,6 +63,9 @@ public class NutritionRecommender {
 		int i = 1;
 		for (String suggestion : suggestions) {
 			System.out.println(String.valueOf(i) + ". " + suggestion);
+			i+=1;
 		}
+		// the suggestion of meals to be developed
+		// place holder
 	}
 }

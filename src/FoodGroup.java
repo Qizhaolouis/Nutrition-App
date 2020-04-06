@@ -14,6 +14,10 @@ public class FoodGroup {
 	HashMap<String,Food> foodDetail;
 	HashMap<String,Double> foodPortion;
 	
+	
+	/**
+	 * Initializes the FoodGroup Object.
+	 */
 	public FoodGroup() {
 		meal = new ArrayList<String>();
 		foodDetail = new HashMap<String,Food>();
@@ -21,7 +25,7 @@ public class FoodGroup {
 	}
 	
 	/**
-	 * Add a food and its portion to the food group
+	 * Adds a food and its portion to the food group
 	 * @param food the food object
 	 * @param serving number of servings 
 	 */
@@ -42,7 +46,7 @@ public class FoodGroup {
 	}
 	
 	/**
-	 * Calculate the total calories consumed
+	 * Calculates the total calories consumed
 	 * @return the total calories consumed
 	 */
 	public double getMealCalories() {
@@ -56,7 +60,7 @@ public class FoodGroup {
 	}
 	
 	/**
-	 * Calculate the total protein consumed
+	 * Calculates the total protein consumed
 	 * @return the total protein consumed
 	 */
 	public double getMealProtein() {
@@ -70,7 +74,7 @@ public class FoodGroup {
 	}
 	
 	/**
-	 * Calculate the total fat consumed
+	 * Calculates the total fat consumed
 	 * @return the total fat consumed
 	 */
 	public double getMealFat() {
@@ -84,7 +88,7 @@ public class FoodGroup {
 	}
 	
 	/**
-	 * Calculate the total carbs consumed
+	 * Calculates the total carbs consumed
 	 * @return the total carbs consumed
 	 */
 	public double getMealCarbs() {
@@ -97,6 +101,15 @@ public class FoodGroup {
 		return mealCarbs;
 	}
 	
+	
+	public HashMap<String, Food> getFoodDetail() {
+		return foodDetail;
+	}
+
+	public HashMap<String, Double> getFoodPortion() {
+		return foodPortion;
+	}
+
 	// test
 	public static void main(String[] args) {
 		FoodLibrary foods = new FoodLibrary();

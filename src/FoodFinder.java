@@ -35,7 +35,7 @@ public class FoodFinder {
 	}
 	
 	/**
-	 * Give a similarity score based on the 2 food names
+	 * Gives a similarity score based on the 2 food names
 	 * @param name1
 	 * @param name2
 	 * @return The similarity score from 0 to 1
@@ -46,7 +46,7 @@ public class FoodFinder {
 	}
 	
 	/**
-	 * This method is to get the Top N matches based on the similarity score, 
+	 * Returns the Top N matches based on the similarity score, 
 	 * given the user's input food name
 	 * @param name
 	 * @param topN
@@ -62,7 +62,7 @@ public class FoodFinder {
 	
 	
 	/**
-	 * Give a similarity score based on the 2 foods
+	 * Gives a similarity score based on the 2 foods
 	 * do NOT compare calories because we can reduce or increase calories by changing portion
 	 * compare the percent of fat/protein/carbs
 	 * @param food1
