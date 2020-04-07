@@ -27,9 +27,8 @@ Course CIT591: The nutrition java app for Team 70.
 - FoodFinder
 	- A utility class to find food by fuzzy matching
 	- Compare names
-	- Compare nutritions
 - NutritionCalculator
-	- Calculate more complicated information.
+	- calculate the difference between foods inputed and nutrition needed, and recommend foods adds/deletes for the user.
 - NutritionGuiderline
 	- Store information about the guideline: the caleries needed for different age/gender
 - NutritionRecommender
