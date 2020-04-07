@@ -30,6 +30,17 @@ public class NutritionCalculator {
 	}
 	
 	/**
+	 * Calculates the difference between the foods user inputed and guideline for fat.
+	 * @param meal
+	 * @param guide
+	 * @return difference
+	 */
+	public static int fatDifferenceToGuide(FoodGroup meal, NutritionGuideline guide) {
+		// To be developed
+		return 0;
+	}
+	
+	/**
 	 * Calculates the difference between the foods user inputed and guideline for carbs.
 	 * @param meal
 	 * @param guide
