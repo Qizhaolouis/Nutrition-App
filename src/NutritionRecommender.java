@@ -8,6 +8,9 @@ public class NutritionRecommender {
 	
 	User newUser;
 
+	/**
+	 * The interface for user input
+	 */
 	public NutritionRecommender() {
 		System.out.println("-------Welcome to Nutrition App!--------");
 		Scanner scanner = new Scanner(System.in);

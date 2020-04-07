@@ -97,14 +97,4 @@ public class FoodGroup {
 		return mealCarbs;
 	}
 	
-	// test
-	public static void main(String[] args) {
-		FoodLibrary foods = new FoodLibrary();
-		HashMap<String, Food> foodLib = foods.getLibrary();
-		Food food = foodLib.get("Bagels Wheat");
-		FoodGroup meal = new FoodGroup(); 
-		System.out.print(food.getName());
-		meal.addFood(food, 1.0);
-		meal.getMealCalories();
-	}
 }
