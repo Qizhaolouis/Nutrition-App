@@ -1,7 +1,7 @@
 import java.util.HashMap;
 /***
  * Runner class for the app.
- * @author qizhao
+ * @author Team-70
  *
  */
 public class NutritionRunner {

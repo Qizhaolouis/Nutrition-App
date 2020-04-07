@@ -29,10 +29,14 @@ class ValidationTest {
 		String userName = "Louis";
 		User p1 = new User(userName, age, gender);
 		p1.setActivityLevel(activityLevel);
-		NutritionGuideline test1 = new NutritionGuideline();
-		int calorieNeeded = test1.getCalorieNeeded(p1);
-		assertEquals(1800, calorieNeeded);
+		NutritionGuideline test1 = new NutritionGuideline(p1);
+		int caloriesNeeded = test1.getCaloriesNeeded();
+		int proteinMid = test1.getProteinMid();
+		int fatMid = test1.getFatMid();
+		int carbsMid = test1.getCarbsMid();
+		assertEquals(1800, caloriesNeeded);
+		assertEquals(101, proteinMid);
+		assertEquals(55, fatMid);
+		assertEquals(247, carbsMid);
 	}
-
-
 }

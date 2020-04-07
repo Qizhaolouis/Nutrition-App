@@ -14,10 +14,10 @@ public class User {
 	double weight = -1; //in kg
 	double sleepingHours = -1;
 	FoodGroup foods = new FoodGroup(); 
-	NutritionGuideline guide = new NutritionGuideline();
+	NutritionGuideline guide;
 	
 	/**
-	 * User needs to input the username to initialize the data
+	 * Initializes a newly created User Object by the given name, age, and activity level.
 	 * @param inputName user name
 	 * @param inputAge user age (must be an integer)
 	 * @param inputGender (user gender, must be M or F)
@@ -26,12 +26,13 @@ public class User {
 		name = inputName;
 		gender = inputGender;
 		age = inputAge;
+		guide = new NutritionGuideline(this);
 	}
 	/**
 	 * @return the calories that the user needs each day
 	 */
 	public int getUserDailyCaloriesNeeded() {
-		return guide.getCalorieNeeded(this);
+		return guide.getCaloriesNeeded();
 	}
 	
 	/**
@@ -58,7 +59,7 @@ public class User {
 	}
 	
 	/**
-	 * check sleeping hours
+	 * check sleeping hours, return suggestion regarding sleep
 	 * @return suggestion
 	 */
 	public String suggestionSleepHours() {
@@ -81,12 +82,12 @@ public class User {
 	}
 	
 	/**
-	 * check calories
+	 * check calories, return suggestion regarding calories
 	 * @return suggestion
 	 */
 	public String suggestionCalories() {
 		String suggestion = "";
-		//get caleries needed
+		// get calories needed
 		double caloriesNeeded = this.getUserDailyCaloriesNeeded();
 		// add food
 		double caloriesConsumed = 0;
@@ -105,7 +106,7 @@ public class User {
 	}
 	
 	/**
-	 * If activity level is L , user need more exercises.
+	 * check activity level, if activity level is L , user need more exercises.
 	 * @return suggestion for activity
 	 */
 	public String suggestionActivity() {

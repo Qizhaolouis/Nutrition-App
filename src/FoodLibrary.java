@@ -28,7 +28,7 @@ public class FoodLibrary {
 
 	
 	/**
-	 * This Method to load Data from the input file
+	 * Loads Data from the input file
 	 * @param filename, the path of the input file
 	 * @return 
 	 */
@@ -51,7 +51,7 @@ public class FoodLibrary {
 	
 	// Create a food HashMap, using food name as the key
 	/**
-	 * This method is to transfer the data to a food HashMap by using the names as keys
+	 * Transfers the data to a food HashMap by using the names as keys
 	 * @param foodData, the data read from the load function
 	 * @return food HashMap
 	 */
