@@ -34,7 +34,7 @@ Course CIT591: The nutrition java app for Team 70.
 - NutritionRecommender
 	- The program logic workflow and user interface.
 - NutritionRunner
-	- The program to run the app
+	- The program to run the app.
 
 ## Future "Maybe" To-do
 - **Front end**
