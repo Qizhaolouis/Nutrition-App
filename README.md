@@ -1,5 +1,5 @@
-# Team-70-Nurtrition-Recommender
-The java app for CIT591
+# Nurtrition-Recommender
+The java app for CIT591 of Team 70
 
 # Team-70-Nutrition-App
 Course CIT591: The nutrition java app for Team 70.
@@ -32,7 +32,9 @@ Course CIT591: The nutrition java app for Team 70.
 - NutritionGuiderline
 	- Store information about the guideline: the caleries needed for different age/gender
 - NutritionRecommender
-	- The app
+	- The program logic workflow and user interface.
+- NutritionRunner
+	- The program to run the app
 
 ## Future "Maybe" To-do
 - **Front end**
