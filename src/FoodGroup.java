@@ -100,9 +100,7 @@ public class FoodGroup {
 		}
 		return mealCarbs;
 	}
-	
-<<<<<<< HEAD
-=======
+
 	
 	public HashMap<String, Food> getFoodDetail() {
 		return foodDetail;
@@ -122,5 +120,4 @@ public class FoodGroup {
 		meal.addFood(food, 1.0);
 		meal.getMealCalories();
 	}
->>>>>>> e409c69a6c9116ddea81a8fca36a89f3b6528f46
 }
