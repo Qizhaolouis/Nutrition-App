@@ -42,8 +42,7 @@ public class NutritionGuideline {
 		String activityLevel = "M";
 		String gender = "F";
 		String userName = "Louis";
-		User p1 = new User(userName, age, gender);
-		p1.setActivityLevel(activityLevel);
+		User p1 = new User(userName, age, gender, activityLevel);
 		NutritionGuideline test1 = new NutritionGuideline(p1);
 		System.out.println(test1.getCaloriesNeeded());
 		System.out.println(test1.getProteinMid());

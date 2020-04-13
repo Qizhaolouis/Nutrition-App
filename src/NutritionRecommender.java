@@ -11,30 +11,9 @@ public class NutritionRecommender {
 	/**
 	 * The interface for user input
 	 */
-	public NutritionRecommender() {
-		System.out.println("-------Welcome to Nutrition App!--------");
-		Scanner scanner = new Scanner(System.in);
-		// name
-		System.out.println("Tell us what is your name?");
-		String userName = scanner.next();
-		// age
-		System.out.println("Please input your age as an integer!");
-		while (!scanner.hasNextInt()) {
-    		System.out.println("Please input a number!");
-    		scanner.next();
-    	}
-		int age = scanner.nextInt();
-		// gender
-		System.out.println("Please input your gender! M or F:");
-		String gender = scanner.next();
-		while ((gender.equals("M") == false) && (gender.equals("F") == false)) {
-    		System.out.println("Please input a valid gender! M or F please.");
-    		gender = scanner.next();
-    	}
-		
+	public NutritionRecommender(String userName, int age, String gender, String activityLevel) {
 		// make user
-		newUser = new User(userName, age, gender);
-		scanner.close();
+		newUser = new User(userName, age, gender, activityLevel);
 	}
 	
 	/**

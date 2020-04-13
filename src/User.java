@@ -22,10 +22,11 @@ public class User {
 	 * @param inputAge user age (must be an integer)
 	 * @param inputGender (user gender, must be M or F)
 	 */
-	public User(String inputName, int inputAge, String inputGender) {
+	public User(String inputName, int inputAge, String inputGender, String inputActivityLevel) {
 		name = inputName;
 		gender = inputGender;
 		age = inputAge;
+		activityLevel = inputActivityLevel;
 		guide = new NutritionGuideline(this);
 	}
 	/**
