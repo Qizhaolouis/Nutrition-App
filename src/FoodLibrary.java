@@ -26,7 +26,6 @@ public class FoodLibrary {
 		return library;
 	}
 
-	
 	/**
 	 * Loads Data from the input file
 	 * @param filename, the path of the input file

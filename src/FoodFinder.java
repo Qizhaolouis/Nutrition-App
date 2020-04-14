@@ -54,10 +54,12 @@ public class FoodFinder {
 	 */
 	public ArrayList<String> getTopNMatched(String name, int topN) {
 		ArrayList<String> matchedNames = findMatchedNames(name);
+		ArrayList<String> selection = matchedNames;
 		// To be developed
 		// just return the first N from the matched array for current test
-		ArrayList<String> selection = new ArrayList<String>(matchedNames.subList(0, topN));
+		if (matchedNames.size() > topN) {
+			selection = new ArrayList<String>(matchedNames.subList(0, topN));
+		} 
 		return selection;
 	}
-
 }
