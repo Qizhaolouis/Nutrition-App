@@ -50,7 +50,7 @@ public class FoodGroup implements Nutrition {
 	 * @param food the food object
 	 * @param serving number of servings 
 	 */
-	public void addFood(Food food, double serving) {
+	public void deleteFood(Food food, double serving) {
 		
 		String foodName = food.getName();
 		double servingWeight = food.getServingWeight();

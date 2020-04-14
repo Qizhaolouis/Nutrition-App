@@ -109,11 +109,7 @@ public class NutritionCalculator {
 		ArrayList<String> matchedNames = new ArrayList<String>();
 		for (String name : library.keySet()) {
 			library.get(name);
-			if (isMatched(tokens, name)) {
-						matchedNames.add(name);
-					}
 				}
-				return matchedNames;
 		
 		// To be developed
 		Food userFood = new Food("");
