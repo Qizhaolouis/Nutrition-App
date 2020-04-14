@@ -48,6 +48,9 @@ public class User {
 		suggestions.add(this.suggestionActivity());
 		suggestions.add(this.suggestionSleepHours());
 		suggestions.add(this.suggestionCalories());
+		suggestions.add(this.suggestionFat());
+		suggestions.add(this.suggestionCarbs());
+		suggestions.add(this.suggestionProtein());
 		return suggestions;
 	}
 	
@@ -187,19 +190,12 @@ public class User {
 	
 	
 	/**
-	 * first get the calories/protein/fat/.. needed
-	 * create a raw line
-	 * make a food
-	 * @return
+	 * provide the guide and food group, get back suggested food.
+	 * @return a list of food names
 	 */
-	public Food getSuggestedFood() {
-		// to be developed
-		double calories = guide.getCaloriesNeeded() - foods.getMealCalories();
-		double proteins = guide.getProteinMid() - foods.getMealProtein();
-		double fat = guide.getFatMid() - foods.getMealFat();
-		double carbs = guide.getCarbsMid() - foods.getMealCarbs();
-		Food userFood = new Food("");
-		return userFood;
+	public FoodGroup getSuggestedFood() {
+		FoodGroup foodList = NutritionCalculator.getSuggestedFoodNames(foods, guide);
+		return foodList;
 	}
 	
 	public int getAge() {

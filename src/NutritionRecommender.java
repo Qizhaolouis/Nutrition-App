@@ -50,4 +50,14 @@ public class NutritionRecommender {
 		// the suggestion of meals to be developed
 		// place holder
 	}
+	
+	/**
+	 * Prints suggestions
+	 */
+	public ArrayList<String> getSuggestions() {
+		ArrayList<String> suggestions = newUser.getGeneralSuggestions();
+		// the suggestion of meals to be developed
+		// place holder
+		return suggestions;
+	}
 }

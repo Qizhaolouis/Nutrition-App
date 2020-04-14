@@ -67,8 +67,8 @@ public class NutritionCalculator {
 	}
 	
 	
-	public static ArrayList<String> getSuggestedFoodNames(FoodGroup meal, NutritionGuideline guide) {
-		ArrayList<String> suggestions = new ArrayList<String>();
-		return suggestions;
+	public static FoodGroup getSuggestedFoodNames(FoodGroup meal, NutritionGuideline guide) {
+		FoodGroup foodSuggestions = new FoodGroup();
+		return foodSuggestions;
 	}
 }
