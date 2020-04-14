@@ -5,18 +5,17 @@ import java.util.*;
  * @author Team-70
  *
  */
-public class Food {
-	String name;
-	String type;
-	double calories;
-	double fat;
-	double protein;
-	double carbs;
-	double sugars;
-	double fiber;
-	double servingWeight;
-	String ServingDes;  
-	String foodLine;
+public class Food implements Nutrition {
+	String name = null;
+	String type = null;
+	double calories = 0;
+	double fat = 0;
+	double protein = 0;
+	double carbs = 0;
+	double sugars = 0;
+	double fiber = 0;
+	double servingWeight = 0;
+	String ServingDes = null;  
 	
 	/**
 	 * This method is used for parsing the food data string into fields we need
@@ -34,7 +33,17 @@ public class Food {
 		fiber = parseDouble(elements[8]);
 		servingWeight = parseDouble(elements[elements.length - 5]);
 		ServingDes = fillString(elements[elements.length - 4]);
-		this.foodLine = foodLine;
+	}
+	
+	/**
+	 * This method is used for parsing the food data string into fields we need
+	 * @param foodLine A line that contains all the food information
+	 */
+	public Food(double calories, double fat, double protein, double carbs) {
+		this.calories = calories;
+		this.fat = fat;
+		this.protein = protein;
+		this.carbs = carbs;
 	}
 	
 	public double getCalories() {

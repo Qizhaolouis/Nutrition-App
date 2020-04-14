@@ -44,7 +44,7 @@ public class FoodFinder {
 	
 	public static void main(String[] args) {
 		FoodFinder finder = new FoodFinder();
-		ArrayList<String> matchedNames = finder.getTopNMatched("waffle",10);
+		ArrayList<String> matchedNames = finder.getTopNMatched("whole  milk",3);
 		System.out.println(matchedNames.toString());
 	}
 	

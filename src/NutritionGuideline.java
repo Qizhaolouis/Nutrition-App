@@ -8,19 +8,19 @@ import java.util.Scanner;
  * (source: https://health.gov/our-work/food-nutrition/2015-2020-dietary-guidelines)
  * @author Team-70
  */
-public class NutritionGuideline {
+public class NutritionGuideline implements Nutrition {
 	private HashMap<String,Integer> caloriesGuideline = new HashMap<>();
 	private User user;
-	private int caloriesNeeded; //daily calories needed
-	private int proteinMin; //the floor of daily protein needed
-	private int proteinMax; //the cap of daily protein needed
-	private int proteinMid; //the middle level of daily protein needed
-	private int fatMin; //the floor of daily fat needed
-	private int fatMax; //the cap of daily fat needed
-	private int fatMid; //the middle level of daily fat needed
-	private int carbsMin; //the floor of daily carbs needed
-	private int carbsMax; //the cap of daily carbs needed
-	private int carbsMid; //the middle level of daily carbs needed
+	private double calories; //daily calories needed
+	private double proteinMin; //the floor of daily protein needed
+	private double proteinMax; //the cap of daily protein needed
+	private double protein; //the middle level of daily protein needed
+	private double fatMin; //the floor of daily fat needed
+	private double fatMax; //the cap of daily fat needed
+	private double fat; //the middle level of daily fat needed
+	private double carbsMin; //the floor of daily carbs needed
+	private double carbsMax; //the cap of daily carbs needed
+	private double carbs; //the middle level of daily carbs needed
 	
 	
 	/**
@@ -35,19 +35,6 @@ public class NutritionGuideline {
 		calculateProteinAMDR();
 		calculateFatAMDR();
 		calculateCarbsAMDR();
-	}
-	
-	public static void main(String[] args) {
-		int age = 88;
-		String activityLevel = "M";
-		String gender = "F";
-		String userName = "Louis";
-		User p1 = new User(userName, age, gender, activityLevel);
-		NutritionGuideline test1 = new NutritionGuideline(p1);
-		System.out.println(test1.getCaloriesNeeded());
-		System.out.println(test1.getProteinMid());
-		System.out.println(test1.getFatMid());
-		System.out.println(test1.getCarbsMid());
 	}
 	
 	/**
@@ -96,7 +83,7 @@ public class NutritionGuideline {
 		String gender = user.getGender();
 		String activityLevel = user.getActivityLevel();
 		String key = getGroupKey(ageGroup, gender, activityLevel);
-		caloriesNeeded = caloriesGuideline.get(key);
+		calories = caloriesGuideline.get(key);
 	}
 
 	/**
@@ -149,9 +136,9 @@ public class NutritionGuideline {
 		}
 		
 		double ratioMid = (ratioMin + ratioMax)/2;
-		proteinMin = (int) (caloriesNeeded * ratioMin / (mutiplier * 100));
-		proteinMax = (int) (caloriesNeeded * ratioMax / (mutiplier * 100));
-		proteinMid = (int) (caloriesNeeded * ratioMid / (mutiplier * 100));
+		proteinMin = calories * ratioMin / (mutiplier * 100);
+		proteinMax = calories * ratioMax / (mutiplier * 100);
+		protein = calories* ratioMid / (mutiplier * 100);
 	}
 	
 	/**
@@ -174,9 +161,9 @@ public class NutritionGuideline {
 		}
 		
 		double ratioMid = (ratioMin + ratioMax)/2;
-		fatMin = (int) (caloriesNeeded * ratioMin / (mutiplier * 100));
-		fatMax = (int) (caloriesNeeded * ratioMax / (mutiplier * 100));
-		fatMid = (int) (caloriesNeeded * ratioMid / (mutiplier * 100));
+		fatMin = calories * ratioMin / (mutiplier * 100);
+		fatMax = calories * ratioMax / (mutiplier * 100);
+		fat = calories * ratioMid / (mutiplier * 100);
 	}
 	
 	/**
@@ -187,9 +174,9 @@ public class NutritionGuideline {
 		double ratioMin = 45;
 		double ratioMax = 65;
 		double ratioMid = (ratioMin + ratioMax)/2;
-		carbsMin = (int) (caloriesNeeded * ratioMin / (mutiplier * 100));
-		carbsMax = (int) (caloriesNeeded * ratioMax / (mutiplier * 100));
-		carbsMid = (int) (caloriesNeeded * ratioMid / (mutiplier * 100));
+		carbsMin = calories * ratioMin / (mutiplier * 100);
+		carbsMax = calories * ratioMax / (mutiplier * 100);
+		carbs = calories * ratioMid / (mutiplier * 100);
 
 	}
 	
@@ -197,44 +184,44 @@ public class NutritionGuideline {
 		return caloriesGuideline;
 	}
 
-	public int getCaloriesNeeded() {
-		return caloriesNeeded;
+	public double getCalories() {
+		return calories;
 	}
 
-	public int getProteinMin() {
+	public double getProteinMin() {
 		return proteinMin;
 	}
 
-	public int getProteinMax() {
+	public double getProteinMax() {
 		return proteinMax;
 	}
 
-	public int getProteinMid() {
-		return proteinMid;
+	public double getProtein() {
+		return protein;
 	}
 
-	public int getFatMin() {
+	public double getFatMin() {
 		return fatMin;
 	}
 
-	public int getFatMax() {
+	public double getFatMax() {
 		return fatMax;
 	}
 
-	public int getFatMid() {
-		return fatMid;
+	public double getFat() {
+		return fat;
 	}
 
-	public int getCarbsMin() {
+	public double getCarbsMin() {
 		return carbsMin;
 	}
 
-	public int getCarbsMax() {
+	public double getCarbsMax() {
 		return carbsMax;
 	}
 
-	public int getCarbsMid() {
-		return carbsMid;
+	public double getCarbs() {
+		return carbs;
 	}
 
 }

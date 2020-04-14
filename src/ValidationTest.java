@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import org.junit.BeforeClass;
@@ -29,13 +31,21 @@ class ValidationTest {
 		String userName = "Louis";
 		User p1 = new User(userName, age, gender,activityLevel);
 		NutritionGuideline test1 = new NutritionGuideline(p1);
-		int caloriesNeeded = test1.getCaloriesNeeded();
-		int proteinMid = test1.getProteinMid();
-		int fatMid = test1.getFatMid();
-		int carbsMid = test1.getCarbsMid();
+		int caloriesNeeded = (int) test1.getCalories();
+		int proteinMid = (int) test1.getProtein();
+		int fatMid = (int) test1.getFat();
+		int carbsMid = (int) test1.getCarbs();
 		assertEquals(1800, caloriesNeeded);
 		assertEquals(101, proteinMid);
 		assertEquals(55, fatMid);
 		assertEquals(247, carbsMid);
+	}
+	
+	@Test
+	public void test3() {
+		FoodFinder finder = new FoodFinder();
+		ArrayList<String> matchedNames = finder.getTopNMatched("whole  milk",3);
+		ArrayList<String> answer = new ArrayList<>(Arrays.asList("Milk Whole","Whole Milk","Buttermilk Whole"));
+		assertEquals(answer,matchedNames);
 	}
 }
