@@ -1,4 +1,5 @@
-
+import java.lang.Math;
+import java.util.ArrayList;
 /***
  * This class includes the methods to calculate the difference between foods inputed and nutrition needed, 
  * and recommend foods adds/deletes for the user, based on user's target, and user's input daily meals
@@ -13,7 +14,7 @@ public class NutritionCalculator {
 	 * @param guide
 	 * @return difference
 	 */
-	public static int caloriesDifferenceToGuide(FoodGroup meal, NutritionGuideline guide) {
+	public static double caloriesDifferenceToGuide(FoodGroup meal, NutritionGuideline guide) {
 		// To be developed
 		return 0;
 	}
@@ -24,7 +25,7 @@ public class NutritionCalculator {
 	 * @param guide
 	 * @return difference
 	 */
-	public static int proteinDifferenceToGuide(FoodGroup meal, NutritionGuideline guide) {
+	public static double proteinDifferenceToGuide(FoodGroup meal, NutritionGuideline guide) {
 		// To be developed
 		return 0;
 	}
@@ -35,7 +36,7 @@ public class NutritionCalculator {
 	 * @param guide
 	 * @return difference
 	 */
-	public static int fatDifferenceToGuide(FoodGroup meal, NutritionGuideline guide) {
+	public static double fatDifferenceToGuide(FoodGroup meal, NutritionGuideline guide) {
 		// To be developed
 		return 0;
 	}
@@ -46,7 +47,7 @@ public class NutritionCalculator {
 	 * @param guide
 	 * @return difference
 	 */
-	public static int carbsDifferenceToGuide(FoodGroup meal, NutritionGuideline guide) {
+	public static double carbsDifferenceToGuide(FoodGroup meal, NutritionGuideline guide) {
 		// To be developed
 		return 0;
 	}
@@ -59,9 +60,15 @@ public class NutritionCalculator {
 	 * @param carbs difference from guideline
 	 * @return suggested Food
 	 */
-	public static Food getSuggestedFood(int caloriesDif, int proteinDif, int fatDif, int carbsDif) {
+	public static Food getSuggestedFood(double caloriesDif, double proteinDif, double fatDif, double carbsDif) {
 		// To be developed
 		Food userFood = new Food("");
 		return userFood;
+	}
+	
+	
+	public static ArrayList<String> getSuggestedFoodNames(FoodGroup meal, NutritionGuideline guide) {
+		ArrayList<String> suggestions = new ArrayList<String>();
+		return suggestions;
 	}
 }

@@ -10,9 +10,7 @@ public class User {
 	String gender; // "M" for male, "F" for female
 	String activityLevel = "M"; //"L" for Sedentary, "M" for Moderately Active, "H" for Active
 	String name;
-	double height = -1; //in cm
-	double weight = -1; //in kg
-	double sleepingHours = -1;
+	double sleepingHours = 8;
 	FoodGroup foods = new FoodGroup(); 
 	NutritionGuideline guide;
 	
@@ -29,13 +27,7 @@ public class User {
 		activityLevel = inputActivityLevel;
 		guide = new NutritionGuideline(this);
 	}
-	/**
-	 * @return the calories that the user needs each day
-	 */
-	public int getUserDailyCaloriesNeeded() {
-		return guide.getCaloriesNeeded();
-	}
-	
+
 	/**
 	 * Add food to breakfast
 	 */
@@ -89,7 +81,7 @@ public class User {
 	public String suggestionCalories() {
 		String suggestion = "";
 		// get calories needed
-		double caloriesNeeded = this.getUserDailyCaloriesNeeded();
+		double caloriesNeeded = guide.getCaloriesNeeded();
 		// add food
 		double caloriesConsumed = 0;
 		caloriesConsumed += foods.getMealCalories();
@@ -105,6 +97,75 @@ public class User {
 		}
 		return suggestion;
 	}
+	
+	/**
+	 * check fat needed and gives suggestion
+	 * @return suggestion about fat
+	 */
+	public String suggestionFat() {
+		String suggestion = "";
+		double maxFat = guide.getFatMax();
+		double minFat = guide.getFatMin();
+		double midFat = guide.getFatMid();
+		double fatConsumed = 0;
+		fatConsumed += foods.getMealFat();
+		if (fatConsumed > maxFat) {
+			suggestion = "You are eating too much fat. (about " + String.valueOf(fatConsumed - midFat) + "g less)";;
+		}
+		else if (fatConsumed < minFat) {
+			suggestion = "You will need to eat more fat. (about "  + String.valueOf(midFat - fatConsumed) + "g more)";
+		}
+		else {
+			suggestion = "You are eating the right amount of fat.";
+		}
+		return suggestion;
+	}
+	
+	/**
+	 * check protein needed and give suggestion
+	 * @return suggestion about fat
+	 */
+	public String suggestionProtein() {
+		String suggestion = "";
+		double maxProtein = guide.getProteinMax();
+		double minProtein = guide.getProteinMin();
+		double midProtein = guide.getProteinMid();
+		double proteinConsumed = 0;
+		proteinConsumed += foods.getMealProtein();
+		if (proteinConsumed > maxProtein) {
+			suggestion = "You are eating too much protein. (about " + String.valueOf(proteinConsumed - midProtein) + "g less)";;
+		}
+		else if (proteinConsumed < minProtein) {
+			suggestion = "You will need to eat more protein. (about "  + String.valueOf(midProtein - proteinConsumed) + "g more)";
+		}
+		else {
+			suggestion = "You are eating the right amount of protein.";
+		}
+		return suggestion;
+	}	
+	
+	/**
+	 * check carbs needed and give suggestion
+	 * @return suggestion about carbs
+	 */
+	public String suggestionCarbs() {
+		String suggestion = "";
+		double maxCarbs = guide.getCarbsMax();
+		double minCarbs = guide.getCarbsMin();
+		double midCarbs = guide.getCarbsMid();
+		double carbsConsumed = 0;
+		carbsConsumed += foods.getMealCarbs();
+		if (carbsConsumed > maxCarbs) {
+			suggestion = "You are eating too much Carbs. (about " + String.valueOf(carbsConsumed - midCarbs) + "g less)";;
+		}
+		else if (carbsConsumed < minCarbs) {
+			suggestion = "You will need to eat more Carbs. (about "  + String.valueOf(midCarbs - carbsConsumed) + "g more)";
+		}
+		else {
+			suggestion = "You are eating the right amount of Carbs.";
+		}
+		return suggestion;
+	}	
 	
 	/**
 	 * check activity level, if activity level is L , user need more exercises.
@@ -124,6 +185,7 @@ public class User {
 		return suggestion;
 	}
 	
+	
 	/**
 	 * first get the calories/protein/fat/.. needed
 	 * create a raw line
@@ -131,6 +193,11 @@ public class User {
 	 * @return
 	 */
 	public Food getSuggestedFood() {
+		// to be developed
+		double calories = guide.getCaloriesNeeded() - foods.getMealCalories();
+		double proteins = guide.getProteinMid() - foods.getMealProtein();
+		double fat = guide.getFatMid() - foods.getMealFat();
+		double carbs = guide.getCarbsMid() - foods.getMealCarbs();
 		Food userFood = new Food("");
 		return userFood;
 	}
@@ -165,22 +232,6 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public double getHeight() {
-		return height;
-	}
-
-	public void setHeight(double height) {
-		this.height = height;
-	}
-
-	public double getWeight() {
-		return weight;
-	}
-
-	public void setWeight(double weight) {
-		this.weight = weight;
 	}
 
 	public double getSleepingHours() {
