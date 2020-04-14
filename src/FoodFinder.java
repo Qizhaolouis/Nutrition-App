@@ -16,33 +16,36 @@ public class FoodFinder {
 	 * (complex logic to be developed: input key word, find matches by key words)
 	 * @return The list of matched names
 	 */
-	public ArrayList<String> findMatchedNames(String foodName) {
+	public ArrayList<String> findMatchedNames(String keywords) {
+		String[] tokens = keywords.split(" ");
+
 		ArrayList<String> matchedNames = new ArrayList<String>();
 		for (String name : library.keySet()) {
-			// need to more cleaning process before compare two strings
-			//complex logic to be developed: input key word, find matches by key words
-			if (name.toLowerCase().contains(foodName.toLowerCase())) {
+			if (isMatched(tokens, name)) {
 				matchedNames.add(name);
 			}
 		}
 		return matchedNames;
 	}
 	
-	public static void main(String[] args) {
-		FoodFinder finder = new FoodFinder();
-		ArrayList<String> matchedNames = finder.findMatchedNames("");
-		System.out.println(matchedNames.toString());
+	private boolean isMatched(String[] tokens, String name) {
+		name = cleanString(name);
+		for (String token : tokens) {
+			if (!name.contains(cleanString(token))) {
+				return false;
+			}	
+		}
+		return true;
 	}
 	
-	/**
-	 * Gives a similarity score based on the 2 food names
-	 * @param name1
-	 * @param name2
-	 * @return The similarity score from 0 to 1
-	 */
-	public double compareTwoNames(String name1, String name2) {
-		// To be developed
-		return 1;
+	private String cleanString(String value) {
+		return value.toLowerCase().replaceAll("\\p{Punct}", "");
+	}
+	
+	public static void main(String[] args) {
+		FoodFinder finder = new FoodFinder();
+		ArrayList<String> matchedNames = finder.getTopNMatched("waffle",10);
+		System.out.println(matchedNames.toString());
 	}
 	
 	/**
@@ -52,14 +55,11 @@ public class FoodFinder {
 	 * @param topN
 	 * @return The TopN matched names from Food Library for user selection
 	 */
-	public ArrayList<String> getTopNMatched(String name, int topN) {
-		ArrayList<String> matchedNames = findMatchedNames(name);
-		ArrayList<String> selection = matchedNames;
-		// To be developed
-		// just return the first N from the matched array for current test
-		if (matchedNames.size() > topN) {
-			selection = new ArrayList<String>(matchedNames.subList(0, topN));
-		} 
+	public ArrayList<String> getTopNMatched(String keywords, int topN) {
+		ArrayList<String> matchedNames = findMatchedNames(keywords);
+		matchedNames.sort((s1, s2) -> s1.length() - s2.length());
+		ArrayList<String> selection = new ArrayList<String>(matchedNames.subList(0, Math.min(matchedNames.size(),topN)));
 		return selection;
 	}
+
 }
