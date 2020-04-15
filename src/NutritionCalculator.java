@@ -32,8 +32,11 @@ public class NutritionCalculator {
 	}
 	
 	public static double proteinRatio(Nutrition meal) {
-		// To be developed
-		return meal.getProtein()/meal.getCalories();
+		if (meal.getCalories()==0) {
+			return Double.MAX_VALUE;
+		} else {
+			return meal.getProtein()/meal.getCalories();
+		}
 	}
 	
 	/**
@@ -43,13 +46,15 @@ public class NutritionCalculator {
 	 * @return difference
 	 */
 	public static double fatGap(Nutrition meal, Nutrition guide) {
-		// To be developed
 		return guide.getFat() - meal.getFat();
 	}
 	
 	public static double fatRatio(Nutrition meal) {
-		// To be developed
-		return meal.getFat()/meal.getCalories();
+		if (meal.getCalories()==0) {
+			return Double.MAX_VALUE;
+		} else {
+			return meal.getFat()/meal.getCalories();
+		}
 	}
 	
 	/**
@@ -64,8 +69,11 @@ public class NutritionCalculator {
 	}
 	
 	public static double carbsRatio(Nutrition meal) {
-		// To be developed
-		return meal.getCarbs()/meal.getCalories();
+		if (meal.getCalories()==0) {
+			return Double.MAX_VALUE;
+		} else {
+			return meal.getCarbs()/meal.getCalories();
+		}
 	}
 	
 	public static double nutritionRatioSimiliarity(Nutrition meal1, Nutrition meal2) {
@@ -84,6 +92,15 @@ public class NutritionCalculator {
 		if (Math.abs(caloriesGap(meal,guide)/guide.getFat())>error) return false;
 		if (Math.abs(fatGap(meal,guide))/guide.getFat()>error) return false;
 		if (Math.abs(carbsGap(meal,guide))/guide.getCarbs()>error) return false;
+		if (Math.abs(proteinGap(meal,guide))/guide.getProtein()>error) return false;
+		return true;
+	}
+	
+	public static boolean isNutritionExcess(Nutrition meal, Nutrition guide) {
+		if (caloriesGap(meal,guide)<0) return false;
+		if (fatGap(meal,guide)<0) return false;
+		if (carbsGap(meal,guide)<0) return false;
+		if (proteinGap(meal,guide)<0) return false;
 		return true;
 	}
 	
@@ -105,12 +122,11 @@ public class NutritionCalculator {
 	 * @param carbs difference from guideline
 	 * @return suggested Food
 	 */
-	public static FoodGroup getSuggestedFood(Nutrition meal, Nutrition guide, HashMap<String, Food> library) {
-		FoodGroup suggestedFoodGroup = new FoodGroup();
-		Food nutritionGap = nutritionGap(meal, guide);
-		double range = 0.1;
-		ArrayList<String> matchedNames = new ArrayList<String>();
-		double min = 1000000;
+	public static FoodGroup getSuggestedFood(FoodGroup group, Nutrition guide, HashMap<String, Food> library,double error) {
+		FoodGroup suggestedFoodGroup = dropExtraFood(group, guide, error);
+		if (isSimiliar(suggestedFoodGroup,guide,error)) return suggestedFoodGroup;
+		Food nutritionGap = nutritionGap(suggestedFoodGroup, guide);
+		double min = Double.MAX_VALUE;
 		double similarity;
 		Food suggestedFood = null;
 		for (String food : library.keySet()) {
@@ -120,12 +136,98 @@ public class NutritionCalculator {
 				suggestedFood = library.get(food);
 			}
 		}
-		String foodName = suggestedFood.getName();
-		double servingWeight = suggestedFood.getServingWeight();
-		double portion = servingWeight / 100;
-		suggestedFoodGroup.addFood(suggestedFood, nutritionGap.getCalories()/(suggestedFood.getCalories()*portion));
-		System.out.println(suggestedFood.getName()+":" + nutritionGap.getCalories()/(suggestedFood.getCalories()*portion));
+		suggestedFoodGroup.addFood(suggestedFood, nutritionGap.getCalories()/suggestedFood.getCalories());
+		//System.out.println(suggestedFood.getName()+":" + nutritionGap.getCalories()/suggestedFood.getCalories());
 		return suggestedFoodGroup;
+	}
+	
+	public static FoodGroup dropExtraFood(FoodGroup group, Nutrition guide, double error) {
+		Food gap = nutritionGap(group, guide);
+		Food tempFood = null;
+		double tempPortion = 0;
+		while (gap.getCalories()<0) {
+			if (isSimiliar(group,guide,error)) return group;
+			ArrayList<Food> foods = new ArrayList<>(group.getFoodDetail().values());
+			double min = Double.MAX_VALUE;
+			double portion;
+			double value;
+			for (Food f: foods) {
+				portion = group.getPortion(f) - Math.max(Math.ceil(group.getPortion(f))-1,0);
+				value = Math.abs(f.getCalories() * portion - gap.getCalories());
+				if (value<min) {
+					min = value;
+					tempFood = f;
+					tempPortion = portion;
+				}
+		
+			}
+			group.addFood(tempFood, -tempPortion);
+			gap = nutritionGap(group, guide);
+		}
+		while (gap.getFat()<0) {
+			if (isSimiliar(group,guide,error)) return group;
+			ArrayList<Food> foods = new ArrayList<>(group.getFoodDetail().values());
+			double min = Double.MAX_VALUE;
+			double portion;
+			double value;
+			for (Food f: foods) {
+				portion = group.getPortion(f) - Math.max(Math.ceil(group.getPortion(f))-1,0);
+				value = Math.abs(f.getFat() * portion - gap.getFat());
+				if (value<min) {
+					min = value;
+					tempFood = f;
+					tempPortion = portion;
+				}
+		
+			}
+			group.addFood(tempFood, -tempPortion);
+			gap = nutritionGap(group, guide);
+		}
+		while (gap.getProtein()<0) {
+			if (isSimiliar(group,guide,error)) return group;
+			ArrayList<Food> foods = new ArrayList<>(group.getFoodDetail().values());
+			double min = Double.MAX_VALUE;
+			double portion;
+			double value;
+			for (Food f: foods) {
+				portion = group.getPortion(f) - Math.max(Math.ceil(group.getPortion(f))-1,0);
+				value = Math.abs(f.getProtein() * portion - gap.getProtein());
+				if (value<min) {
+					min = value;
+					tempFood = f;
+					tempPortion = portion;
+				}
+		
+			}
+			group.addFood(tempFood, -tempPortion);
+			gap = nutritionGap(group, guide);
+		}
+		while (gap.getCarbs()<0) {
+			if (isSimiliar(group,guide,error)) return group;
+			ArrayList<Food> foods = new ArrayList<>(group.getFoodDetail().values());
+			double min = Double.MAX_VALUE;
+			double portion;
+			double value;
+			for (Food f: foods) {
+				portion = group.getPortion(f) - Math.max(Math.ceil(group.getPortion(f))-1,0);
+				value = Math.abs(f.getCarbs() * portion - gap.getCarbs());
+				if (value<min) {
+					min = value;
+					tempFood = f;
+					tempPortion = portion;
+					System.out.println(3);
+				}
+		
+			}
+			group.addFood(tempFood, -tempPortion);
+			gap = nutritionGap(group, guide);
+		}
+		ArrayList<Food> kk = new ArrayList<>(group.getFoodDetail().values());
+		for (Food f: kk) {
+			System.out.println(f.getName());
+			System.out.println(group.getFoodPortion().get(f.getName()));
+		}
+		return group;
 	}
 	
 	public static FoodGroup FoodGroupDifference(FoodGroup group1, FoodGroup group2) {
@@ -139,25 +241,25 @@ public class NutritionCalculator {
 	}
 	
 	
-	public static FoodGroup getSuggestedFoodNames(FoodGroup meal, NutritionGuideline guide) {
-		FoodGroup foodSuggestions = new FoodGroup();
-		return foodSuggestions;
-	}
-	
 	public static void main(String[] args) {
 		FoodLibrary foods = new FoodLibrary();
 		HashMap<String, Food>  foodList = foods.getLibrary();
 		FoodGroup a = new FoodGroup();
 		a.addFood(foodList.get("Bagels Wheat"),1);
+		a.addFood(foodList.get("Whole Milk"),15);
 		int age = 88;
 		String activityLevel = "M";
 		String gender = "F";
 		String userName = "Louis";
 		User p1 = new User(userName, age, gender,activityLevel);
 		NutritionGuideline guide = new NutritionGuideline(p1);
-		FoodGroup add = getSuggestedFood(a, guide,foodList);
-		add.addFood(foodList.get("Bagels Wheat"),1);
+		FoodGroup add = getSuggestedFood(a, guide,foodList,0.1);
 		boolean out = isSimiliar(add,guide,0.1);
 		System.out.println(out);
+		ArrayList<Food> kk = new ArrayList<>(add.getFoodDetail().values());
+		for (Food f: kk) {
+			System.out.println(f.getName());
+			System.out.println(add.getFoodPortion().get(f.getName()));
+		}
 	}
 }

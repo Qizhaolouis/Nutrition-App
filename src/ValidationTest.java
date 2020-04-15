@@ -20,7 +20,17 @@ class ValidationTest {
 		HashMap<String, Food>  foodList = foods.getLibrary();
 		Food a = foodList.get("Bagels Wheat");
 		double calories = a.getCalories();
-		assertEquals( 250.0, calories);
+		assertEquals( 245.0, calories);
+	}
+	@Test
+	public void test2() {
+		FoodLibrary foods = new FoodLibrary();
+		HashMap<String, Food>  foodList = foods.getLibrary();
+		Food a = foodList.get("Bagels Wheat");
+		FoodGroup aa = new FoodGroup();
+		aa.addFood(a, 1);
+		double calories = aa.getCalories();
+		assertEquals( 245.0, calories);
 	}
 	
 	@Test

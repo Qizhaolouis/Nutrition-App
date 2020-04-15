@@ -23,16 +23,16 @@ public class Food implements Nutrition {
 	 */
 	public Food(String foodLine) {
 		String[] elements = foodLine.split(",");
-		name = elements[1];
-		type = elements[2];
-		calories = parseDouble(elements[3]);
-		fat = parseDouble(elements[4]);
-		protein = parseDouble(elements[5]);
-		carbs = parseDouble(elements[6]);
-		sugars = parseDouble(elements[7]);
-		fiber = parseDouble(elements[8]);
 		servingWeight = parseDouble(elements[elements.length - 5]);
 		ServingDes = fillString(elements[elements.length - 4]);
+		name = elements[1];
+		type = elements[2];
+		calories = parseDouble(elements[3]) * servingWeight / 100;
+		fat = parseDouble(elements[4]) * servingWeight / 100;
+		protein = parseDouble(elements[5]) * servingWeight / 100;
+		carbs = parseDouble(elements[6]) * servingWeight / 100;
+		sugars = parseDouble(elements[7]) * servingWeight / 100;
+		fiber = parseDouble(elements[8]) * servingWeight / 100;
 	}
 	
 	/**
