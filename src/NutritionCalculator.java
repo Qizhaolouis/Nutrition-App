@@ -87,6 +87,8 @@ public class NutritionCalculator {
 		return true;
 	}
 	
+	
+	
 	public static Food nutritionGap(Nutrition meal, Nutrition guide) {
 		double caloriesGap = caloriesGap(meal,guide);
 		double proteinGap = proteinGap(meal,guide);
@@ -103,22 +105,59 @@ public class NutritionCalculator {
 	 * @param carbs difference from guideline
 	 * @return suggested Food
 	 */
-	public static Food getSuggestedFood(Nutrition meal, Nutrition guide, HashMap<String, Food> library) {
+	public static FoodGroup getSuggestedFood(Nutrition meal, Nutrition guide, HashMap<String, Food> library) {
+		FoodGroup suggestedFoodGroup = new FoodGroup();
 		Food nutritionGap = nutritionGap(meal, guide);
 		double range = 0.1;
 		ArrayList<String> matchedNames = new ArrayList<String>();
-		for (String name : library.keySet()) {
-			library.get(name);
-				}
-		
-		// To be developed
-		Food userFood = new Food("");
-		return userFood;
+		double min = 1000000;
+		double similarity;
+		Food suggestedFood = null;
+		for (String food : library.keySet()) {
+			similarity = nutritionRatioSimiliarity(nutritionGap,library.get(food));
+			if (similarity <min) {
+				min = similarity;
+				suggestedFood = library.get(food);
+			}
+		}
+		String foodName = suggestedFood.getName();
+		double servingWeight = suggestedFood.getServingWeight();
+		double portion = servingWeight / 100;
+		suggestedFoodGroup.addFood(suggestedFood, nutritionGap.getCalories()/(suggestedFood.getCalories()*portion));
+		System.out.println(suggestedFood.getName()+":" + nutritionGap.getCalories()/(suggestedFood.getCalories()*portion));
+		return suggestedFoodGroup;
+	}
+	
+	public static FoodGroup FoodGroupDifference(FoodGroup group1, FoodGroup group2) {
+		HashMap<String,Food> foodDetail2 = group2.getFoodDetail();
+		HashMap<String,Double> foodPortion2 = group2.getFoodPortion();
+		ArrayList<Food> foods = new ArrayList<Food>();
+		for (String foodName : foodDetail2.keySet()) {
+			group1.addFood(foodDetail2.get(foodName), -foodPortion2.get(foodName));
+		}
+		return group1;
 	}
 	
 	
 	public static FoodGroup getSuggestedFoodNames(FoodGroup meal, NutritionGuideline guide) {
 		FoodGroup foodSuggestions = new FoodGroup();
 		return foodSuggestions;
+	}
+	
+	public static void main(String[] args) {
+		FoodLibrary foods = new FoodLibrary();
+		HashMap<String, Food>  foodList = foods.getLibrary();
+		FoodGroup a = new FoodGroup();
+		a.addFood(foodList.get("Bagels Wheat"),1);
+		int age = 88;
+		String activityLevel = "M";
+		String gender = "F";
+		String userName = "Louis";
+		User p1 = new User(userName, age, gender,activityLevel);
+		NutritionGuideline guide = new NutritionGuideline(p1);
+		FoodGroup add = getSuggestedFood(a, guide,foodList);
+		add.addFood(foodList.get("Bagels Wheat"),1);
+		boolean out = isSimiliar(add,guide,0.1);
+		System.out.println(out);
 	}
 }

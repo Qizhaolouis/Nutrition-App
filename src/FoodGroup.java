@@ -36,28 +36,11 @@ public class FoodGroup implements Nutrition {
 		double portion = serving * servingWeight / 100; // calculate how many 100g has been consumed.
 		
 		if (foodDetail.containsKey(foodName)) {
-			foodPortion.put(foodName, foodPortion.get(foodName) + portion);
-		}
-		else {
-			meal.add(foodName);
-			foodDetail.put(foodName, food);
-			foodPortion.put(foodName, portion);
-		}
-	}
-	
-	/**
-	 * Delete a food and its portion to the food group
-	 * @param food the food object
-	 * @param serving number of servings 
-	 */
-	public void deleteFood(Food food, double serving) {
-		
-		String foodName = food.getName();
-		double servingWeight = food.getServingWeight();
-		double portion = serving * servingWeight / 100; // calculate how many 100g has been consumed.
-		
-		if (foodDetail.containsKey(foodName)) {
-			foodPortion.put(foodName, foodPortion.get(foodName) + portion);
+			if (foodPortion.get(foodName) + portion==0) {
+				foodPortion.remove(foodName);
+			} else {
+				foodPortion.put(foodName, foodPortion.get(foodName) + portion);
+			}
 		}
 		else {
 			meal.add(foodName);
