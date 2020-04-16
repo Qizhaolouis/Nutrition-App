@@ -60,4 +60,23 @@ public class NutritionRecommender {
 		// place holder
 		return suggestions;
 	}
+	
+	/**
+	 * Get suggested Food
+	 * @return
+	 */
+	public FoodGroup getSuggestedFood() {
+		FoodGroup foodResultList;
+		FoodLibrary foodlib = new FoodLibrary();
+		String caloriesSuggestion = newUser.suggestionCalories();
+		//System.out.print(caloriesSuggestion);
+		if (caloriesSuggestion.contains("more")) {
+			//System.out.print("more");
+			foodResultList = NutritionCalculator.getSuggestedFood(newUser.getFoods(), newUser.getGuide(), foodlib.getLibrary(), 10.0);
+		}
+		else {
+			foodResultList = NutritionCalculator.dropExtraFood(newUser.getFoods(), newUser.getGuide(), 10.0);
+		}		
+		return foodResultList;
+	}
 }

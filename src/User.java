@@ -28,6 +28,14 @@ public class User {
 		guide = new NutritionGuideline(this);
 	}
 
+	public NutritionGuideline getGuide() {
+		return guide;
+	}
+
+	public void setGuide(NutritionGuideline guide) {
+		this.guide = guide;
+	}
+
 	/**
 	 * Add food to breakfast
 	 */
@@ -84,10 +92,10 @@ public class User {
 	public String suggestionCalories() {
 		String suggestion = "";
 		// get calories needed
-		double caloriesNeeded = guide.getCaloriesNeeded();
+		double caloriesNeeded = guide.getCalories();
 		// add food
 		double caloriesConsumed = 0;
-		caloriesConsumed += foods.getMealCalories();
+		caloriesConsumed += foods.getCalories();
 		// get suggestion
 		if (Math.abs(caloriesNeeded - caloriesConsumed) < 100) {
 			suggestion = "The calories you consumed is the right amount.";
@@ -109,9 +117,9 @@ public class User {
 		String suggestion = "";
 		double maxFat = guide.getFatMax();
 		double minFat = guide.getFatMin();
-		double midFat = guide.getFatMid();
+		double midFat = guide.getFat();
 		double fatConsumed = 0;
-		fatConsumed += foods.getMealFat();
+		fatConsumed += foods.getFat();
 		if (fatConsumed > maxFat) {
 			suggestion = "You are eating too much fat. (about " + String.valueOf(fatConsumed - midFat) + "g less)";;
 		}
@@ -132,9 +140,9 @@ public class User {
 		String suggestion = "";
 		double maxProtein = guide.getProteinMax();
 		double minProtein = guide.getProteinMin();
-		double midProtein = guide.getProteinMid();
+		double midProtein = guide.getProtein();
 		double proteinConsumed = 0;
-		proteinConsumed += foods.getMealProtein();
+		proteinConsumed += foods.getProtein();
 		if (proteinConsumed > maxProtein) {
 			suggestion = "You are eating too much protein. (about " + String.valueOf(proteinConsumed - midProtein) + "g less)";;
 		}
@@ -155,9 +163,9 @@ public class User {
 		String suggestion = "";
 		double maxCarbs = guide.getCarbsMax();
 		double minCarbs = guide.getCarbsMin();
-		double midCarbs = guide.getCarbsMid();
+		double midCarbs = guide.getCarbs();
 		double carbsConsumed = 0;
-		carbsConsumed += foods.getMealCarbs();
+		carbsConsumed += foods.getCarbs();
 		if (carbsConsumed > maxCarbs) {
 			suggestion = "You are eating too much Carbs. (about " + String.valueOf(carbsConsumed - midCarbs) + "g less)";;
 		}
@@ -194,8 +202,16 @@ public class User {
 	 * @return a list of food names
 	 */
 	public FoodGroup getSuggestedFood() {
-		FoodGroup foodList = NutritionCalculator.getSuggestedFoodNames(foods, guide);
-		return foodList;
+		FoodGroup foodResultList;
+		FoodLibrary foodlib = new FoodLibrary();
+		String caloriesSuggestion = this.suggestionCalories();
+		if (caloriesSuggestion.contains("more")) {
+			foodResultList = NutritionCalculator.getSuggestedFood(foods, guide, foodlib.getLibrary(), 100.0);
+		}
+		else {
+			foodResultList = NutritionCalculator.dropExtraFood(foods, guide, 100.0);
+		}		
+		return foodResultList;
 	}
 	
 	public int getAge() {
