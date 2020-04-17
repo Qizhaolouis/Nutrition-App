@@ -38,7 +38,8 @@ Course CIT591: The nutrition java app for Team 70.
 
 ## Future "Maybe" To-do
 - **Front end**
-  - Java spark
-- **Database**
-  - Local computer File
-- We may find a server to host the website
+  - Java spark Framework
+  	- We used different handlers for this purpose.
+- **Deployment**
+  - The web application is deployed to a server using heroku
+  - It is mapped to a domain using cname.
