@@ -44,4 +44,4 @@ Course CIT591: The nutrition java app for Team 70.
   - The web application is deployed to a server using heroku
   - It is mapped to a domain using cname.
 - **Website**
-  - <a href="www.qizhaolouis.com">Nutrition App</a>
+  - <a href="http://www.qizhaolouis.com">Nutrition App</a>
