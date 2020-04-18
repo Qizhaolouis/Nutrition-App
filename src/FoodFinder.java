@@ -28,26 +28,6 @@ public class FoodFinder {
 		return matchedNames;
 	}
 	
-	private boolean isMatched(String[] tokens, String name) {
-		name = cleanString(name);
-		for (String token : tokens) {
-			if (!name.contains(cleanString(token))) {
-				return false;
-			}	
-		}
-		return true;
-	}
-	
-	private String cleanString(String value) {
-		return value.toLowerCase().replaceAll("\\p{Punct}", "");
-	}
-	
-	public static void main(String[] args) {
-		FoodFinder finder = new FoodFinder();
-		ArrayList<String> matchedNames = finder.getTopNMatched("whole  milk",3);
-		System.out.println(matchedNames.toString());
-	}
-	
 	/**
 	 * Returns the Top N matches based on the similarity score, 
 	 * given the user's input food name
@@ -60,6 +40,37 @@ public class FoodFinder {
 		matchedNames.sort((s1, s2) -> s1.length() - s2.length());
 		ArrayList<String> selection = new ArrayList<String>(matchedNames.subList(0, Math.min(matchedNames.size(),topN)));
 		return selection;
+	}
+	
+	/**
+	 * Checks if the name including all the tokens (after cleaning the name and tokens).
+	 * @param tokens, ArrayList of tokens
+	 * @param name
+	 * @return true for the name including all the tokens, otherwise return false. 
+	 */
+	private boolean isMatched(String[] tokens, String name) {
+		name = cleanString(name);
+		for (String token : tokens) {
+			if (!name.contains(cleanString(token))) {
+				return false;
+			}	
+		}
+		return true;
+	}
+	
+	/**
+	 * Remove the punctuation from the string, and changes to lower cases.
+	 * @param String
+	 * @return cleaned String
+	 */
+	private String cleanString(String value) {
+		return value.toLowerCase().replaceAll("\\p{Punct}", "");
+	}
+	
+	public static void main(String[] args) {
+		FoodFinder finder = new FoodFinder();
+		ArrayList<String> matchedNames = finder.getTopNMatched("whole  milk",3);
+		System.out.println(matchedNames.toString());
 	}
 
 }

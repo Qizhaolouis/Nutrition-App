@@ -14,7 +14,7 @@ public class NutritionRunner {
 		breakfast.put("Bagels Wheat", 100.0);
 		breakfast.put("Dutch Apple Pie", 0.0);
 		
-		System.out.print(breakfast.toString());
+		System.out.println(breakfast.toString());
 		nutritionApp.addMeal(breakfast);
 		nutritionApp.giveSuggestions();
 		

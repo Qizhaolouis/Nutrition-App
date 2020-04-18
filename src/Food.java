@@ -36,7 +36,8 @@ public class Food implements Nutrition {
 	}
 	
 	/**
-	 * This method is used for parsing the food data string into fields we need
+	 * This method is initialize a Food with calories, fat, protein, and carbs,
+	 * and keep other parameters as default
 	 * @param foodLine A line that contains all the food information
 	 */
 	public Food(double calories, double fat, double protein, double carbs) {

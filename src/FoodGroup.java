@@ -25,9 +25,9 @@ public class FoodGroup implements Nutrition {
 	}
 	
 	/**
-	 * Adds a food and its portion to the food group
+	 * Adds/deletes a food and its portion to the food group
 	 * @param food the food object
-	 * @param serving number of servings 
+	 * @param serving number of servings (positive for add, negative for deletes)
 	 */
 	public void addFood(Food food, double serving) {
 		
@@ -50,7 +50,7 @@ public class FoodGroup implements Nutrition {
 	}
 	
 	/**
-	 * Adds a food and its portion to the food group
+	 * Gets the portion for the given Food
 	 * @param food the food object
 	 * @param serving number of servings 
 	 */
