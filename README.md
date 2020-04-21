@@ -4,11 +4,11 @@ The java app for CIT591 of Team 70
 # Configuration
 ## Method 1
 1. download the project and unzip it.
-<img src='https://github.com/qiz216/sparkjavaproject/blob/master/images/Screenshot at Apr 20 20-50-52.png'>
+<img src='https://github.com/qiz216/sparkjavaproject/blob/master/images/Screenshot%20at%20Apr%2020%2020-50-52.png'>
 2. open command line in computer, and do `cd \path\to\folder\final-project-nutrition-app`
-<img src='https://github.com/qiz216/sparkjavaproject/blob/master/images/Screenshot at Apr 20 20-51-39.png'>
+<img src='https://github.com/qiz216/sparkjavaproject/blob/master/images/Screenshot%20at%20Apr%2020%2020-51-39.png'>
 3. on the command line, run `java -jar \path\to\folder\final-project-nutrition-app\NutritionAppTeam70.jar`
-<img src='https://github.com/qiz216/sparkjavaproject/blob/master/images/Screenshot at Apr 20 20-52-12.png'>
+<img src='https://github.com/qiz216/sparkjavaproject/blob/master/images/Screenshot%20at%20Apr%2020%2020-52-12.png'>
 
 ## Method 2
 1. First you will have to clone the project to a folder, if you see a "pom.xml" in the folder please delete it. (do **not** delete the pom_file folder!) and then create a new Maven project.
