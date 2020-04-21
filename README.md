@@ -4,7 +4,7 @@ The java app for CIT591 of Team 70
 # Configuration
 ## Method 1
 1. download the project and unzip it.
-<img src='https://github.com/qiz216/sparkjavaproject/blob/master/images/Screenshot%20at%20Apr%2020%2020-50-52.png'>
+<img src='/UPenn-CIT599/final-project-nutrition-app/blob/master/images/Screenshot%20at%20Apr%2020%2020-50-52.png?raw=true'>
 2. open command line in computer, and do `cd \path\to\folder\final-project-nutrition-app`
 <img src='https://github.com/qiz216/sparkjavaproject/blob/master/images/Screenshot%20at%20Apr%2020%2020-51-39.png'>
 3. on the command line, run `java -jar \path\to\folder\final-project-nutrition-app\NutritionAppTeam70.jar`
