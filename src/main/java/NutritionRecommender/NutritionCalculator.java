@@ -363,27 +363,4 @@ public class NutritionCalculator {
 		}
 		return group1;
 	}
-	
-	
-	public static void main(String[] args) {
-		FoodLibrary foods = new FoodLibrary();
-		HashMap<String, Food>  foodList = foods.getLibrary();
-		FoodGroup a = new FoodGroup();
-		a.addFood(foodList.get("Bagels Wheat"),1);
-		a.addFood(foodList.get("Whole Milk"),15);
-		int age = 88;
-		String activityLevel = "M";
-		String gender = "F";
-		String userName = "Louis";
-		User p1 = new User(userName, age, gender,activityLevel);
-		NutritionGuideline guide = new NutritionGuideline(p1);
-		FoodGroup add = getSuggestedFood(a, guide,foodList,0.1);
-		boolean out = isSimiliar(add,guide,0.1);
-		System.out.println(out);
-		ArrayList<Food> kk = new ArrayList<>(add.getFoodDetail().values());
-		for (Food f: kk) {
-			System.out.println(f.getName());
-			System.out.println(add.getFoodPortion().get(f.getName()));
-		}
-	}
 }
