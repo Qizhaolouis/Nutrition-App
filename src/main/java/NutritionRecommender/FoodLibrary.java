@@ -50,7 +50,6 @@ public class FoodLibrary {
 		return foodData;
 	}
 	
-	// Create a food HashMap, using food name as the key
 	/**
 	 * Transfers the data to a food HashMap by using the names as keys
 	 * @param foodData, the data read from the load function
@@ -66,15 +65,4 @@ public class FoodLibrary {
 		return foodList;	
 	}
 	
-	/*
-	public static void main(String[] args) {
-		FoodLibrary foods = new FoodLibrary();
-		System.out.println(foods.getLibrary().size());
-		Food a = foods.getLibrary().get("Bagels Wheat");
-		System.out.println(a.getCarbs());
-		//.get("Bagels Wheat"));
-		//ArrayList<String> data = load.loadData("MyFoodData.csv");
-		//System.out.println(load.foodList(data).get("Bagels Wheat"));
-	}
-	*/
 }
