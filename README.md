@@ -36,7 +36,9 @@ The java app for CIT591 of Team 70
 8. Go to **UserInterface -> Main.java** and run it. After it is running, go to http://localhost:4567/
 <img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/9.runMain.png'>
 
-# How to use the App
+# How to use the Web App
+1. When you successfully completed the above steps, you will access the web portal with URL http://localhost:4567/.
+<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/homePage'>
 
 # Technology Used
 - **Front end**
