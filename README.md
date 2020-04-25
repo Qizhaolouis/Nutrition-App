@@ -49,8 +49,26 @@ On this home page, click "Try it now" in the bottom will bring you go inside our
 
    Below the title, you can click "Go Back Home" to return to the home page.
    
-3. After entering the food name, click "Search Food", it will show up some matches food below, you can choose a candidate that most closely to what you ate, and input the quantity of the food you ate. Click "Add Food" to add it to the food group.
+3. After entering the food name, click "Search Food", it will show up some matches food below, you can choose a candidate that most closes to what you ate, and input the quantity of the food you ate. Click "Add Food" to add it to the food group.
 <img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/SearchFood.png'>
+
+4. After adding the food, a blue line will show up above reminds you what you have input.
+<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/AddFood.png'>
+
+5. After inputing all the food you had for a day, you can click "Finished Adding Food", the system will help you to evaluate your eating habbits and give you some suggestions.
+<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/AddEverything.png'>
+
+6. Next, let us get know a little more about you.
+
+   You can input your general information on this page, name, age, hours of sleep, gender and frequency of workout. It will help us give a more precise evaluation for you.
+
+<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/UserInput2.png'>
+
+7. Woohoo! Here is your health eating suggestion!
+<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/Suggestion.png'>
+
+<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/Suggestion2.png'>
+
 
 # Technology Used
 - **Front end**
