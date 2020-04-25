@@ -11,7 +11,16 @@ In this project, we create a web application that can help users reach their hea
 
 Breakdown:
 
-Deyi Zhang (deyi@seas.upenn.edu)
+Qi Zhao:
 
+Xixi Zhou:
+
+Deyi Zhang (deyi@seas.upenn.edu):
+- researched on the source of Nutrition Guideline and Food Library
+- created the logic for Food finder and diet recommendation
+- wrote Classes: NutritionFinder, NutritionCalculator, NutritionGuide
+- wrote Interface Nutrition for Classes Food, FoodGroup and NutritionGuide
+- adjusted/partially write Classes: Food, FoodGroup, FoodLibrary
+- Q&A: created J-unit test cases
 
 
