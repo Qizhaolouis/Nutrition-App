@@ -65,7 +65,7 @@ On this home page, click "Try it now" in the bottom will bring you go inside our
 <img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/UserInput2.png'>
 
 7. Woohoo! Here is your health eating suggestion!
-<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/Suggestion.png'>
+<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/Suggestion1.png'>
 
 <img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/Suggestion2.png'>
 
