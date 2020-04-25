@@ -250,7 +250,7 @@ public class NutritionCalculator {
 			double value;
 			// drop food based on dropping which food makes the food group close to the guideline
 			for (Food f: foods) {
-				if (f.getPortion()==0) continue;
+				if (f.getProtein()==0) continue;
 				// assume drop 1 serving if the portion is an integer, 
 				// otherwise drop the floating part.
 				portion = group.getPortion(f) - Math.max(Math.ceil(group.getPortion(f))-1,0);
