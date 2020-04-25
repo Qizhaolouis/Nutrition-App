@@ -172,10 +172,11 @@ public class NutritionCalculator {
 			double value;
 			// drop food based on dropping which food makes the food group close to the guideline
 			for (Food f: foods) {
+				if (f.getCalories()==0) continue;
 				// assume drop 1 serving if the portion is an integer, 
 				// otherwise drop the floating part.
 				portion = group.getPortion(f) - Math.max(Math.ceil(group.getPortion(f))-1,0);
-				value = Math.abs(f.getCalories() * portion - gap.getCalories());
+				value = Math.abs(f.getCalories() * portion + gap.getCalories());
 				if (value<min) {
 					min = value;
 					tempFood = f;
@@ -210,10 +211,11 @@ public class NutritionCalculator {
 			double value;
 			// drop food based on dropping which food makes the food group close to the guideline
 			for (Food f: foods) {
+				if (f.getFat()==0) continue;
 				// assume drop 1 serving if the portion is an integer, 
 				// otherwise drop the floating part.
 				portion = group.getPortion(f) - Math.max(Math.ceil(group.getPortion(f))-1,0);
-				value = Math.abs(f.getFat() * portion - gap.getFat());
+				value = Math.abs(f.getFat() * portion + gap.getFat());
 				if (value<min) {
 					min = value;
 					tempFood = f;
@@ -248,10 +250,11 @@ public class NutritionCalculator {
 			double value;
 			// drop food based on dropping which food makes the food group close to the guideline
 			for (Food f: foods) {
+				if (f.getPortion()==0) continue;
 				// assume drop 1 serving if the portion is an integer, 
 				// otherwise drop the floating part.
 				portion = group.getPortion(f) - Math.max(Math.ceil(group.getPortion(f))-1,0);
-				value = Math.abs(f.getProtein() * portion - gap.getProtein());
+				value = Math.abs(f.getProtein() * portion + gap.getProtein());
 				if (value<min) {
 					min = value;
 					tempFood = f;
@@ -286,10 +289,11 @@ public class NutritionCalculator {
 			double value;
 			// drop food based on dropping which food makes the food group close to the guideline
 			for (Food f: foods) {
+				if (f.getCarbs()==0) continue;
 				// assume drop 1 serving if the portion is an integer, 
 				// otherwise drop the floating part.
 				portion = group.getPortion(f) - Math.max(Math.ceil(group.getPortion(f))-1,0);
-				value = Math.abs(f.getCarbs() * portion - gap.getCarbs());
+				value = Math.abs(f.getCarbs() * portion + gap.getCarbs());
 				if (value<min) {
 					min = value;
 					tempFood = f;
