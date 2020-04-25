@@ -1,0 +1,17 @@
+Nutrition App
+
+GithHub repository: https://github.com/UPenn-CIT599/final-project-nutrition-app/
+
+Description:
+In this project, we create a web application that can help users reach their health goals by presenting them with if the nutrition of the foods that they ate today hits their target, and provide valuable food suggestions by analyzing the users’ input diets. It includes the steps below:
+- Ask the user to input the foods that he or she ate today.
+- Ask the user to input personal data and health goals.
+- Present if the nutrition he or she ate today achieves their health goal.
+- Calculate the recommended daily diet if the foods they ate didn’t meet their goal.
+
+Breakdown:
+
+Deyi Zhang (deyi@seas.upenn.edu)
+
+
+
