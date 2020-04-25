@@ -83,6 +83,10 @@ On this home page, click "Try it now" in the bottom will bring you go inside our
   - It is mapped to a domain using cname.
 - **Website**
   - <a href="http://www.qizhaolouis.com">Nutrition App</a>
+  
+# Source
+- https://tools.myfooddata.com/nutrition-facts-database-spreadsheet.php
+- https://health.gov/our-work/food-nutrition/2015-2020-dietary-guidelines
 
 # Team Member
 - Deyi Zhang: `deyi@seas.upenn.edu`
