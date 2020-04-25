@@ -61,7 +61,7 @@ public class NutritionRecommender {
 		FoodGroup suggestedFood = this.getSuggestedFood();
 		String foodSuggestion = "This is a modified version of food that you need to eat daily: \n<div>";
 		for (String foodName :  suggestedFood.getFoodDetail().keySet()) {
-			foodSuggestion += "<li class=\"list-group-item active\">- \n\n\n" + String.valueOf(suggestedFood.getFoodPortion().get(foodName)) + " serving of " + foodName
+			foodSuggestion += "<li class=\"list-group-item active\">- \n\n\n" + String.format("%.2f",(suggestedFood.getFoodPortion().get(foodName)) + " serving of " + foodName
 					+ "\n (Each serving is " + suggestedFood.getFoodDetail().get(foodName).getServingDes()+ ") </li>";
 		}
 		foodSuggestion += "</div>";
