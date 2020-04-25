@@ -32,11 +32,11 @@ public class TodoListHandler implements Route{
 			"\n" + 
 			".text-block {\n" + 
 			"  position: absolute;\n" + 
-			"  bottom: 1.0px;\n" + 
-			"  right: 16.5px;\n" + 
+			"  bottom: 1px;\n" + 
+			"  right: 34px;\n" + 
 			"  color: white;\n" + 
 			"  padding-left: 20px;\n" + 
-			"  padding-right: 20px;\n" + 
+			"  padding-right: 10px;\n" + 
 			"}\n" + 
 			"</style>\n" + 
 			"</head>\n" + 
@@ -54,14 +54,19 @@ public class TodoListHandler implements Route{
 			"		<body><div class=\"container\"><div><ul></ul></div>\n" + 
 			"			<div>";
 	
-	private final String newTaskForm = "<div><form action=\"/createtodo\" method=\"post\">Add Food name and number of servings:"
+	private final String newTaskForm = "<div><form action=\"/createtodo\" method=\"post\">"
 			+ "<br>"
 			+ "<h2 class=\"text-warning\">Tell us what you ate today!</h2>"
-			+ "<br>"
+			+ "<br>" 
+			+ "<dl>\n" + 
+			   "<dt class = \"text-success\">Add Food name and number of servings:</dt>\n" + 
+			   "<dd class = \"text-success\">- Breakfast</dd>\n" + 
+			   "<dd class = \"text-success\">- Lunch</dd>\n" + 
+			   "<dd class = \"text-success\">- Dinner</dd>" 
 			+ "<input type=\"text\" name=\"searchfood\" value=\"\">"
 			+ "<br>"
 			+ "<br>"
-			+ "<button class = \"btn btn-outline-success\" style=\"margin-left: 10px\" type=\"submit\">Search Food</button>"
+			+ "<button class = \"btn btn-outline-success\" style=\"margin-left: 2px\" type=\"submit\">Search Food</button>"
 			+ "</form></div>";
 
 

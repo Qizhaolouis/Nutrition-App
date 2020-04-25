@@ -80,10 +80,11 @@ public class RewardHandler implements Route{
 		NutritionRecommender nutritionApp = new NutritionRecommender(userName, age, gender, activityLevel, sleep);
 		nutritionApp.addMeal(meal);
 		ArrayList<String> suggestions = nutritionApp.getSuggestions();
+		//
 		String htmlBody = "<ul class=\"list-group\">\n";
 		meal = new HashMap<String, Double>();
 		for (String suggestion: suggestions) {
-			htmlBody +=  "<li class=\"list-group-item active\">" + suggestion + "</li>\n";
+			htmlBody +=  "<li class=\"list-group-item\">" + suggestion + "</li>\n";
 		}
 		htmlBody += "</ul>";
 		return htmlHead + "<body><h3 class=\"text-success\">Hi " + userName + "!  Here is your health eating suggestion!<h3><br>\n" + htmlBody + "</div></body></html>";
