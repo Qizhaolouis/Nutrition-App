@@ -18,6 +18,10 @@ Qi Zhao:
 - deployed the app to a web server
 
 Xixi Zhou:
+- researched on the data sources of food nutrition, SparkJava and BootStrap to design the Web pages.
+- wrote Classes: Food, FoodLibrary and part of FoodGroup.
+- created HTML scripts for App's pages design, worked with Qi to deploy the SparkJava framework.
+- generated the web functionality description on Readme.
 
 Deyi Zhang (deyi@seas.upenn.edu):
 - researched on the source of Nutrition Guideline and Food Library
