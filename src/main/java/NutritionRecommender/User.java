@@ -102,10 +102,10 @@ public class User {
 			suggestion = "The calories you consumed is the right amount.";
 		}
 		else if (caloriesConsumed > caloriesNeeded) {
-			suggestion = "You will need to eat less food. (about " + String.valueOf(caloriesConsumed - caloriesNeeded) + " calories less)";
+			suggestion = "You will need to eat less food. (about " + String.format("%.0f",caloriesConsumed - caloriesNeeded) + " calories less)";
 		}
 		else {
-			suggestion = "You will need to eat more food. (about " + String.valueOf(caloriesNeeded - caloriesConsumed) + " calories more)";
+			suggestion = "You will need to eat more food. (about " + String.format("%.0f",caloriesNeeded - caloriesConsumed) + " calories more)";
 		}
 		return suggestion;
 	}
@@ -122,10 +122,10 @@ public class User {
 		double fatConsumed = 0;
 		fatConsumed += foods.getFat();
 		if (fatConsumed > maxFat) {
-			suggestion = "You are eating too much fat. (about " + String.valueOf(fatConsumed - midFat) + "g less)";;
+			suggestion = "You are eating too much fat. (about " + String.format("%.0f",fatConsumed - midFat) + "g less)";;
 		}
 		else if (fatConsumed < minFat) {
-			suggestion = "You will need to eat more fat. (about "  + String.valueOf(midFat - fatConsumed) + "g more)";
+			suggestion = "You will need to eat more fat. (about "  + String.format("%.0f",midFat - fatConsumed) + "g more)";
 		}
 		else {
 			suggestion = "You are eating the right amount of fat.";
@@ -145,10 +145,10 @@ public class User {
 		double proteinConsumed = 0;
 		proteinConsumed += foods.getProtein();
 		if (proteinConsumed > maxProtein) {
-			suggestion = "You are eating too much protein. (about " + String.valueOf(proteinConsumed - midProtein) + "g less)";;
+			suggestion = "You are eating too much protein. (about " + String.format("%.0f",proteinConsumed - midProtein) + "g less)";;
 		}
 		else if (proteinConsumed < minProtein) {
-			suggestion = "You will need to eat more protein. (about "  + String.valueOf(midProtein - proteinConsumed) + "g more)";
+			suggestion = "You will need to eat more protein. (about "  + String.format("%.0f",midProtein - proteinConsumed) + "g more)";
 		}
 		else {
 			suggestion = "You are eating the right amount of protein.";
@@ -168,10 +168,10 @@ public class User {
 		double carbsConsumed = 0;
 		carbsConsumed += foods.getCarbs();
 		if (carbsConsumed > maxCarbs) {
-			suggestion = "You are eating too much Carbs. (about " + String.valueOf(carbsConsumed - midCarbs) + "g less)";;
+			suggestion = "You are eating too much Carbs. (about " + String.format("%.0f",carbsConsumed - midCarbs) + "g less)";;
 		}
 		else if (carbsConsumed < minCarbs) {
-			suggestion = "You will need to eat more Carbs. (about "  + String.valueOf(midCarbs - carbsConsumed) + "g more)";
+			suggestion = "You will need to eat more Carbs. (about "  + String.format("%.0f",midCarbs - carbsConsumed) + "g more)";
 		}
 		else {
 			suggestion = "You are eating the right amount of Carbs.";
