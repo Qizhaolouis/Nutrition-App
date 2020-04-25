@@ -11,29 +11,29 @@ The java app for CIT591 of Team 70
 <img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/Screenshot%20at%20Apr%2020%2020-52-12.png'>
 - Now, go to http://localhost:4567/
 
+
 ## Method 2
-1. First you will have to clone the project to a folder, if you see a "pom.xml" in the folder please delete it. (do **not** delete the pom_file folder!) and then create a new Maven project.
-<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/1.maven.png'>
-2. Remember to click "create a simple project", and change the workspace to the folder you just cloned from github. Click next. You can create whatever name you like for group-id and aircraft-id.
-<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/2.configure_maven.png'>
+1. First you will have to clone the project to a folder, You should see a "pom.xml" in the folder, change the `<artifactId>my-app</artifactId>` to a different name that you haven't used before for a maven project, like `<artifactId>qi-app</artifactId>`.
+<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/21.Change_pom_xml.png'>
+2. Open File -> Import, and under maven folder click `Existing Maven Projects`. 
+<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/22.import.png'>
 
-3. This is the structure you will see after the project is created.
-<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/3.pomfile.png'>
+3. Browse the root path to the folder you just cloned.
+<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/221.import.png'>
 
-4. Open the **pom.xml** 
-<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/4.replacepom.png'>
+4. If you see any error next to your "src" folder or others, right click on the folder with error and `Build Path -> Remove from Build Path`. 
+<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/23.Exclude.png'>
+Then right click on the `src/main/java` and `Build Path -> Use as Source Folder`
+<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/24.addsource.png'>
 
-5. Open the **pom_file/pom.xml** and copy all the parts after "<dependencies>" and and paste it after the "</version>" in the **pom.xml** file.
-<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/5.copy.png'>
-
-6. right click on the **pom.xml** file and go to **Maven -> Update Project** and update it.
+5. right click on the **pom.xml** file and go to **Maven -> Update Project** and update it.
 <img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/6.updatemaven.png'>
 
-7. If you do not have the Junit library in classpath, right click on the project and go to **properties**, in the **Java build path -> Libraries** click **Add Library** and add Junit.
+6. If you do not have the Junit library in classpath, right click on the project and go to **properties**, in the **Java build path -> Libraries** click **Add Library** and add Junit.
 <img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/7.enablejunit.png'>
 <img src='hhttps://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/8.junit.png'>
 
-8. Go to **UserInterface -> Main.java** and run it. After it is running, go to http://localhost:4567/
+7. Go to **UserInterface -> Main.java** and run it. After it is running, go to http://localhost:4567/
 <img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/9.runMain.png'>
 
 # How to use the App

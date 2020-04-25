@@ -12,6 +12,10 @@ In this project, we create a web application that can help users reach their hea
 Breakdown:
 
 Qi Zhao:
+- researched on the sparkJava web application frame work to create the user interface.
+- wrote Classes: FoodGroup, User, NutritionRecommender
+- collaborated with Xixi on the userInterface package
+- deployed the app to a web server
 
 Xixi Zhou:
 
