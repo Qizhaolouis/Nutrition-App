@@ -125,6 +125,10 @@ public class FoodGroup implements Nutrition {
 	public HashMap<String, Food> getFoodDetail() {
 		return foodDetail;
 	}
+	
+	public ArrayList<String> getMeal() {
+		return meal;
+	}
 
 	public HashMap<String, Double> getFoodPortion() {
 		return foodPortion;
