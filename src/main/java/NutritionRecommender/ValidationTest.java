@@ -1,9 +1,11 @@
+package NutritionRecommender;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
 
 /***
