@@ -44,10 +44,13 @@ On this home page, click "Try it now" in the bottom will bring you go inside our
 
 2. In this page, you can add food you ate today for nutritions calculation and meals recommendation.
 
-We suggest you to enter the food according to Breakfast, Lunch and Dinner. You only can enter one type of food per time.
+   We suggest you to enter the food according to Breakfast, Lunch and Dinner. You only can enter one type of food per time.
 <img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/InputFood.png'>
 
-Below the title, you can click "Go Back Home" to return to the home page.
+   Below the title, you can click "Go Back Home" to return to the home page.
+   
+3. After entering the food name, click "Search Food", it will show up some matches food below, you can choose a candidate that most closely to what you ate, and input the quantity of the food you ate. Click "Add Food" to add it to the food group.
+<img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/SearchFood.png'>
 
 # Technology Used
 - **Front end**
