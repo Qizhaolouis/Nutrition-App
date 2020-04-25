@@ -39,6 +39,7 @@ The java app for CIT591 of Team 70
 # How to use the Web App
 1. When you successfully completed the above steps, you will access the web portal with URL http://localhost:4567/.
 <img src='https://github.com/UPenn-CIT599/final-project-nutrition-app/blob/master/images/HomePage.png'>
+
 On this home page, click "Try it now" in the bottom will bring you go inside our Nurtion recommender App.
 
 2. In this page, you can add food you ate today for nutritions calculation and meals recommendation.
