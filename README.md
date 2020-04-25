@@ -87,6 +87,11 @@ On this home page, click "Try it now" in the bottom will bring you go inside our
 # Source
 - https://tools.myfooddata.com/nutrition-facts-database-spreadsheet.php
 - https://health.gov/our-work/food-nutrition/2015-2020-dietary-guidelines
+- icon libaray: https://fontawesome.com/icons?d=gallery
+- image 1: https://www.china-briefing.com/news/wp-content/uploads/2019/04/China-Briefing_Increasing-Awareness-and-Growing-Demand-for-Health-Food-Drive-Food-Imports.jpg
+- image 2: https://res.cloudinary.com/sanitarium/image/fetch/q_auto/https://www.sanitarium.com.au/getmedia%2Fae51f174-984f-4a70-ad3d-3f6b517b6da1%2Ffruits-vegetables-healthy-fats.jpg%3Fwidth%3D1180%26height%3D524%26ext%3D.jpg
+- image 3: https://blog.obiaks.com/uploadsblog/171120095429.jpg
+- image 4: https://images.unsplash.com/photo-1521986329282-0436c1f1e212?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80
 
 # Team Member
 - Deyi Zhang: `deyi@seas.upenn.edu`
