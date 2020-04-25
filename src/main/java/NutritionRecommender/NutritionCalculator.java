@@ -116,6 +116,7 @@ public class NutritionCalculator {
 	 * @return true if meal is similar to the guide, otherwise false
 	 */
 	public static boolean isSimiliar(Nutrition meal, Nutrition guide, double error) {
+		//every nutrition in the guide would be greater than 0 as definition
 		if (Math.abs(caloriesGap(meal,guide)/guide.getFat())>error) return false;
 		if (Math.abs(fatGap(meal,guide))/guide.getFat()>error) return false;
 		if (Math.abs(carbsGap(meal,guide))/guide.getCarbs()>error) return false;
