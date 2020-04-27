@@ -39,7 +39,7 @@ public class NutritionRecommender {
 	}
 
 	/**
-	 * Prints suggestions
+	 * give suggestions based on user input
 	 */
 	public void giveSuggestions() {
 		ArrayList<String> suggestions = newUser.getGeneralSuggestions();
@@ -54,7 +54,7 @@ public class NutritionRecommender {
 	}
 	
 	/**
-	 * Prints suggestions
+	 * return suggestions as a list
 	 */
 	public ArrayList<String> getSuggestions() {
 		ArrayList<String> suggestions = newUser.getGeneralSuggestions();
@@ -71,7 +71,7 @@ public class NutritionRecommender {
 	
 	/**
 	 * Get suggested Food
-	 * @return
+	 * @return the suggested food 
 	 */
 	public FoodGroup getSuggestedFood() {
 		FoodGroup foodResultList;
