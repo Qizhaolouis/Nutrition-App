@@ -8,6 +8,9 @@ import java.util.HashMap;
 
 import NutritionRecommender.NutritionRecommender;
 
+
+/*** Give back suggestions.
+*/
 public class RewardHandler implements Route{
 	
 	private final String htmlHead = "\n" + 
@@ -50,7 +53,7 @@ public class RewardHandler implements Route{
 			"        <br>\n" + 
 			"        <h2 class=\"text-warning\">Our Suggestion</h2>\n" + 
 			"        <br>\n";
-
+       
 	public Object handle(Request request, Response response) throws Exception {
 		HashMap<String, Double> meal = new HashMap<String, Double>();
 		String mealString = request.cookie("meal");
