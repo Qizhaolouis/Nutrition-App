@@ -4,6 +4,8 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
+/**ask user to input personal information
+*/
 public class UserHandler  implements Route{
 	
 	private final String htmlHead = "\n" + 
