@@ -7,6 +7,8 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
+/*** Home page
+*/
 public class HomePageHandler implements Route{
 	private String html_content = "";
 	
