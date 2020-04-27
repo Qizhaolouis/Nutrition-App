@@ -10,6 +10,8 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
+/*** Ask user to input their food and send the foods to next page
+*/
 public class TodoListHandler implements Route{
 	private final FoodLibrary foodLib = new FoodLibrary();
 	
@@ -137,7 +139,8 @@ public class TodoListHandler implements Route{
 	public HashMap<String, Double> getMeal() {
 		return meal;
 	}
-	
+	/** show the list of foods that the user has input
+	*/
 	public String taskList() {
 		StringBuilder sb = new StringBuilder();
 		
